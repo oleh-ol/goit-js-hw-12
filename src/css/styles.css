@@ -5,21 +5,119 @@
   |============================
 */
 @import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css');
 
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+body {
+  font-family: Montserrat;
+}
+
+.photo-section {
+  padding-top: 32px;
+}
+
+button {
+  padding: 8px 16px;
+  font-family: Montserrat;
   font-size: 16px;
-  line-height: 24px;
+  color: #ffffff;
+  background-color: #4E75FF;
+  border: none;
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+button:hover,
+button:focus {
+  cursor: pointer;
+  background-color: #6C8CFF;
+  ;
+}
+
+input {
+  font-family: Montserrat;
+  padding: 8px 16px;
   font-weight: 400;
+  font-size: 16px;
+  line-height: 1, 5;
+  border: 1px solid #808080;
+  border-radius: 8px;
+  width: 272px;
+}
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+.search-form {
+  display: flex;
+  justify-content: center;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  gap: 8px;
+  padding-top: 36px;
+}
+
+ul {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0;
+  list-style-type: none;
+}
+
+.img {
+  width: calc((100% - 12px * 4) / 5);
+  border: #000000 solid 1px;
+  border-radius: 4px;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.img-info {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+
+  padding: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  font-size: 10px;
+}
+
+.img-info-item {
+  width: min-content;
+  text-align: center;
+}
+
+span {
+  font-weight: 500;
+}
+
+.loader-container {
+  text-align: center;
+  display: none;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #FFF;
+  border-bottom-color: #FF3D00;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
