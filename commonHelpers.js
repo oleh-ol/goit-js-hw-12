@@ -1,0 +1,11 @@
+import{S as p,i as h}from"./assets/vendor-5b791d57.js";(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))r(e);new MutationObserver(e=>{for(const o of e)if(o.type==="childList")for(const n of o.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&r(n)}).observe(document,{childList:!0,subtree:!0});function i(e){const o={};return e.integrity&&(o.integrity=e.integrity),e.referrerPolicy&&(o.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?o.credentials="include":e.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function r(e){if(e.ep)return;e.ep=!0;const o=i(e);fetch(e.href,o)}})();const g="https://pixabay.com/api/?",y="41837495-d070c30be5c0243a4bb3b397a",l=document.querySelector(".search-form"),a=document.querySelector(".gallery"),c=document.querySelector(".loader-container");let u=new p(".gallery a",{captionsData:"alt",captionDelay:250});l.addEventListener("submit",t=>{t.preventDefault(),L(),a.innerHTML="",u.refresh();const s=l.elements.keywords.value,i=new URLSearchParams({key:y,q:s,image_type:"photo",orientation:"horizontal",safesearch:!0});fetch(`${g}${i}`).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(F).catch(d).finally(b())});const F=t=>{if(t.hits.length===0){d("No images found for the given search query.");return}a.innerHTML=t.hits.reduce((s,{largeImageURL:i,webformatURL:r,tags:e,likes:o,views:n,comments:f,downloads:m})=>s+`
+    <li class="img">
+       <a href="${i}"><img src="${r}" alt="${e}"></a>
+      <ul class="img-info">
+        <li class="img-info-item"><span>Likes</span> ${o}</li>
+        <li class="img-info-item"><span>Views</span> ${n}</li>
+        <li class="img-info-item"><span>Comments</span> ${f}</li>
+        <li class="img-info-item"><span>Downloads</span> ${m}</li>
+      </ul>
+    </li>`,""),u.refresh()},d=(t="An error occurred.")=>{h.show({message:t,maxWidth:432,iconUrl:"./img/error-icon.svg",iconColor:"#FFFFFF",backgroundColor:"#EF4040",messageColor:"#FFFFFF",position:"topRight"}),a.innerHTML=""},L=()=>{c.style.display="block"},b=()=>{c.style.display="none"};
+//# sourceMappingURL=commonHelpers.js.map
