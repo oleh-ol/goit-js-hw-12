@@ -121,3 +121,14 @@ span {
     transform: rotate(360deg);
   }
 }
+
+.load-more {
+  display: none;
+
+  width: 125px;
+  height: 40px;
+
+  margin-top: 40px;
+  margin-right: auto;
+  margin-left: auto;
+}
